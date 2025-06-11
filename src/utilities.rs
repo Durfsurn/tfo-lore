@@ -45,7 +45,10 @@ pub fn remove_element_styles(el: impl Into<Element>, styles: Vec<String>) {
     .into_iter()
     .map(|es| {
         let mut style = es.split(": ");
-        (style.next().unwrap_or_default().to_string(), style.next().unwrap_or_default().to_string())
+        (
+            style.next().unwrap_or_default().to_string(),
+            style.next().unwrap_or_default().to_string(),
+        )
     })
     .collect_vec();
 
@@ -77,13 +80,19 @@ pub fn update_element_style(el: impl Into<Element>, styles: Vec<(String, String)
     .into_iter()
     .map(|es| {
         let mut style = es.split(": ");
-        (style.next().unwrap_or_default().to_string(), style.next().unwrap_or_default().to_string())
+        (
+            style.next().unwrap_or_default().to_string(),
+            style.next().unwrap_or_default().to_string(),
+        )
     })
     .collect_vec();
 
     let mut new_styles = existing_styles;
     for new in styles {
-        if let Some(idx) = new_styles.iter().position(|(a, _)| a.trim() == new.0.trim()) {
+        if let Some(idx) = new_styles
+            .iter()
+            .position(|(a, _)| a.trim() == new.0.trim())
+        {
             new_styles.remove(idx);
             new_styles.push(new);
         } else {

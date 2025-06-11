@@ -3,11 +3,15 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-y: auto;
+    overflow: hidden;
+    overscroll-behavior-y: contain;
+    scroll-behavior: smooth;
+    /* background-color: #0f0f0f; */
 }
 
 .section {
     backface-visibility: hidden;
+    scroll-snap-align: start;
 }
 
 .discord-dark {
@@ -35,4 +39,24 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s 1s, opacity 1s linear;
+}
+
+.curtains-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('/curtains.png');
+
+    /* Smaller horizontally elliptical fade */
+    -webkit-mask-image: radial-gradient(ellipse 50% 25% at center, transparent 33%, black 67%);
+    mask-image: radial-gradient(ellipse 50% 25% at center, transparent 33%, black 67%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
 }
