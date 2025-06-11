@@ -16,7 +16,8 @@ pub use utilities::*;
 use web_sys::{Element, IntersectionObserver, IntersectionObserverEntry, IntersectionObserverInit};
 mod utilities;
 
-#[derive(Debug, Deserialize)]
+#[allow(dead_code)]
+#[derive(Deserialize)]
 struct Item {
     html: Vec<String>,
     link: String,
@@ -32,9 +33,10 @@ impl Page {
     fn new() -> Arc<Self> {
         Arc::new(Self {})
     }
-    fn render(page: &Arc<Self>) -> Dom {
+
+    fn render(_page: &Arc<Self>) -> Dom {
         div()
-            .class("section-wrapper")
+            .class(["flex", "flex-col", "items-stretch"])
             .children(DATABASE.keys().enumerate().map(show_item))
             .after_inserted(|_| {
                 do_scroll();
@@ -45,41 +47,55 @@ impl Page {
 
 fn show_item((idx, date): (usize, &NaiveDate)) -> Dom {
     let htmls = DATABASE.get(date).unwrap().html.as_slice();
+    let is_first = idx == 0;
+    let is_last = idx == DATABASE.len() - 1;
 
     section()
         .class([
             "section",
-            "grid",
+            "relative",
+            "w-full",
             "h-screen",
-            "place-items-center",
+            "flex",
+            "items-center",
+            "justify-center",
             "transition-all",
             "duration-700",
             "ease-in-out",
         ])
         .apply(|s| {
-            s.class(
-                // Initial state: either active or hidden
-                if idx == 0 {
-                    ["opacity-100", "translate-y-0"]
-                } else {
-                    ["opacity-0", "translate-y-12"]
-                },
-            )
+            if is_first {
+                s.class(["opacity-100", "translate-y-0", "mb-[15vh]"])
+            } else if is_last {
+                s.class(["opacity-0", "translate-y-12", "mt-[15vh]"])
+            } else {
+                s.class(["mt-[15vh]", "mb-[15vh]"])
+            }
         })
         .child(
             div()
-                .class(["flex", "flex-wrap", "justify-center", "gap-4"])
+                .class([
+                    "flex",
+                    "flex-wrap",
+                    "justify-center",
+                    "items-stretch",
+                    "gap-4",
+                ])
                 .children(htmls.iter().map(|html| {
                     div()
-                        .class(["discord-dark", "item"])
+                        .class([
+                            "discord-dark",
+                            "item",
+                            "self-center", // Vertical alignment in flex row
+                        ])
                         .after_inserted(move |el| el.set_inner_html(html))
                         .into_dom()
                 }))
-                .child(hr().into_dom())
                 .into_dom(),
         )
         .into_dom()
 }
+
 fn do_scroll() {
     let window = web_sys::window().unwrap();
     let document = window.document().unwrap();
