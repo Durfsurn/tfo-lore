@@ -1,0 +1,38 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.section {
+    backface-visibility: hidden;
+}
+
+.discord-dark {
+    background-color: #36393F !important;
+    color: white !important;
+}
+
+.item {
+    padding: 7.5px 7.5px 2px 7.5px;
+    border-radius: 15px;
+    min-width: 350px;
+    max-width: 500px;
+}
+
+.logo-fade {
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.logo-fade img {
+    user-select: none;
+}
+
+.fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 1s linear;
+}
