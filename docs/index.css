@@ -52,7 +52,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url('/curtains.png');
+    background-image: url('./curtains.png');
 
     /* Smaller horizontally elliptical fade */
     -webkit-mask-image: radial-gradient(ellipse 50% 25% at center, transparent 33%, black 67%);
