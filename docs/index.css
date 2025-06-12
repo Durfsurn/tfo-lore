@@ -22,7 +22,7 @@ body {
 .item {
     padding: 7.5px 7.5px 2px 7.5px;
     border-radius: 15px;
-    min-width: 350px;
+    min-width: 300px;
     max-width: 500px;
 }
 
