@@ -60,7 +60,7 @@ impl Page {
                     .class(["curtains-background"])
                     .into_dom(),
             )
-            .children(DATABASE.keys().rev().enumerate().map(show_item))
+            .children(DATABASE.keys().enumerate().map(show_item))
             .into_dom()
     }
 }
