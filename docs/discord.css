@@ -31,6 +31,20 @@ span>img.emoji {
     padding-top: 2px
 }
 
+div.gridContainer__623de {
+    height: 135px
+}
+
+div.gridContainer__623de>div {
+    margin-top: -20px
+}
+
+.emoji.jumboable {
+    height: var(--custom-emoji-size-jumbo-emoji);
+    min-height: var(--custom-emoji-size-jumbo-emoji);
+    width: var(--custom-emoji-size-jumbo-emoji);
+}
+
 :root {
     --mention-background: color-mix(in oklab, hsl(var(--opacity-blurple-24-hsl) / 0.23921568627450981) 100%, hsl(var(--theme-base-color-hsl, 0 0% 0%) / 0.23921568627450981) var(--theme-base-color-amount, 0%));
     --background-mentioned: color-mix(in oklab, hsl(var(--opacity-yellow-8-hsl) / 0.0784313725490196) 100%, hsl(var(--theme-base-color-hsl, 0 0% 0%) / 0.0784313725490196) var(--theme-base-color-amount, 0%));
@@ -39,7 +53,8 @@ span>img.emoji {
     --background-surface-high: color-mix(in oklab, var(--neutral-64) 100%, var(--theme-base-color, #000) var(--theme-base-color-amount, 0%));
     --border-subtle: color-mix(in oklab, hsl(var(--opacity-12-hsl) / 0.12156862745098039) 100%, hsl(var(--theme-base-color-hsl, 0 0% 0%) / 0.12156862745098039) var(--theme-border-color-amount, var(--theme-base-color-amount, 0%)));
     --border-normal: color-mix(in oklab, hsl(var(--opacity-20-hsl) / 0.2) 100%, hsl(var(--theme-base-color-hsl, 0 0% 0%) / 0.2) var(--theme-border-color-amount, var(--theme-base-color-amount, 0%)));
-
+    --custom-emoji-size-jumbo-emoji: 3rem;
+    --message-reacted-background: color-mix(in oklab, hsl(var(--opacity-blurple-24-hsl) / 0.23921568627450981) 100%, hsl(var(--theme-base-color-hsl, 0 0% 0%) / 0.23921568627450981) var(--theme-base-color-amount, 0%));
 }
 
 span[role=button][tabindex="-1"] {
@@ -4087,7 +4102,7 @@ div {
     background-color: var(--background-mod-subtle);
 }
 
-.reaction__23977:hover {
+/* .reaction__23977:hover {
     background-color: var(--background-primary);
     border-color: var(--opacity-white-20);
 }
@@ -4095,7 +4110,7 @@ div {
 .visual-refresh .reaction__23977:hover {
     background-color: var(--background-mod-normal);
     border-color: var(--border-faint);
-}
+} */
 
 .reactionBtn__23977 {
     height: 1.125rem;
@@ -4125,18 +4140,19 @@ div {
     background-color: var(--background-mod-subtle);
 }
 
+/* 
 .reactions__23977:hover .reactionBtn__23977 {
     opacity: 1;
-}
+} */
 
-.reactionBtn__23977.forceShow__23977:hover {
+/* .reactionBtn__23977.forceShow__23977:hover {
     background-color: var(--background-primary);
     border-color: var(--opacity-white-20);
-}
-
+} */
+/* 
 .visual-refresh .reactionBtn__23977:hover {
     background-color: var(--background-mod-normal);
-}
+} */
 
 .reactionInner__23977 {
     align-items: center;
@@ -8335,15 +8351,15 @@ span {
     background-color: var(--background-mod-subtle);
 }
 
-.reaction__23977:hover {
+/* .reaction__23977:hover {
     background-color: var(--background-primary);
     border-color: var(--opacity-white-20);
-}
+} */
 
-.visual-refresh .reaction__23977:hover {
+/* .visual-refresh .reaction__23977:hover {
     background-color: var(--background-mod-normal);
     border-color: var(--border-faint);
-}
+} */
 
 .separator_f84418 {
     background: var(--border-subtle);
@@ -8501,13 +8517,13 @@ strong {
     color: var(--text-secondary);
 }
 
-.reaction__23977:hover .reactionCount__23977 {
+/* .reaction__23977:hover .reactionCount__23977 {
     color: var(--interactive-hover);
 }
 
 .visual-refresh .reaction__23977:hover .reactionCount__23977 {
     color: var(--text-primary);
-}
+} */
 
 .emojiContainer__75abc {
     display: inline-block;
