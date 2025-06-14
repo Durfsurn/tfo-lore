@@ -31,12 +31,9 @@ span>img.emoji {
     padding-top: 2px
 }
 
-div.gridContainer__623de {
-    height: 135px
-}
-
 div.gridContainer__623de>div {
-    margin-top: -20px
+    margin-top: -40px;
+    margin-bottom: -25px;
 }
 
 .emoji.jumboable {
